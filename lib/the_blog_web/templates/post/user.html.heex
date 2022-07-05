@@ -1,0 +1,24 @@
+<h1>Listing Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for post <- @posts do %>
+    <tr>
+      <td><%= post.title %></td>
+      <td><%= post.body %></td>
+
+      <td>
+        <span><%= link "View", to: Routes.post_path(@conn, :show, post) %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
